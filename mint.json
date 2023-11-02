@@ -1,0 +1,51 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Documentation",
+  "logo": {
+    "dark": "/logo/light.png",
+    "light": "/logo/dark.png"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#4837c9",
+    "light": "#4837c9",
+    "dark": "#4837c9",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#4837c9"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "https://discord.gg/fTkjNSKGHy"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Home",
+    "url": "https://neuranet-ai.com"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "API Documentation",
+      "pages": ["api-reference/introduction"]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        "api-reference/endpoint/chat",
+        "api-reference/endpoint/image"
+      ]
+    }
+  ]
+}
