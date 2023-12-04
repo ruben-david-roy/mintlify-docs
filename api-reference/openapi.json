@@ -106,47 +106,38 @@
           }
         }
       },
-      "ChatRequest": {
-        "type": "object",
-        "properties": {
-          "settings": {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "description": "Model identifier for the chat response generation."
-              }
-            },
-            "required": [
-              "model"
-            ]
-          },
-          "conversation": {
-            "type": "object",
-            "properties": {
-              "Instruct": {
-                "type": "string",
-                "description": "Optional instructions for the AI model."
-              },
-              "User": {
-                "type": "string",
-                "description": "The user's part of the conversation."
-              },
-              "AI": {
-                "type": "string",
-                "description": "Optional AI's part of the conversation."
-              }
-            },
-            "required": [
-              "User"
-            ]
-          }
-        },
-        "required": [
-          "settings",
-          "conversation"
-        ]
-      },
+      ChatRequest:
+        type: object
+        properties:
+          settings:
+            type: object
+            properties:
+              model:
+                type: string
+                description: "Model identifier for the chat response generation."
+                enum: ['nlite', 'npro', 'npro-vision'] # Specifies the allowed values
+            required:
+              - model
+          conversation:
+            type: object
+            properties:
+              history:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sender:
+                      type: string
+                      description: "Identifier for the sender of the message."
+                      enum: ['user', 'assistant', 'instruct'] # Specifies the allowed sender types
+                    content:
+                      type: string
+                      description: "The content of the message."
+            required:
+              - history
+        required:
+          - settings
+          - conversation
       "ChatResponse": {
         "type": "object",
         "properties": {
